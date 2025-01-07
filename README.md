@@ -9,3 +9,4 @@ This deployment opens up database access for CockRoachDB on port `26257`. Please
 * Automatically creates QOD db and populates it with quotes, authors and genres tables including the data
 * No need of higher privileges (eg: anyuid) to run in openshift
 
+I added this line.
