@@ -19,9 +19,9 @@ spec:
           image: docker.io/ibmicpcoc/qod-db
           imagePullPolicy: Always
           ports:
-            - name: mysql
-              containerPort: 3306
+            - name: cockroachdb
+              containerPort: 26257
               protocol: TCP
           env:
-            - name: MYSQL_ROOT_PASSWORD
+            - name: COCKROACHDB_ROOT_PASSWORD
               value: root

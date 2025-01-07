@@ -1,5 +1,5 @@
 echo "********* Creating QOD tables ************"
-mysql $mysql_flags < /tmp/1_createdb.sql
-mysql $mysql_flags < /tmp/2_authors.sql
-mysql $mysql_flags < /tmp/3_genres.sql
-mysql $mysql_flags < /tmp/4_quotes_sm.sql
+cockroach sql <flags> --file /tmp/1_createdb.sql
+cockroach sql <flags> --file /tmp/2_authors.sql
+cockroach sql <flags> --file /tmp/3_genres.sql
+cockroach sql <flags> --file /tmp/4_quotes_sm.sql

@@ -8,9 +8,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: mysql
-      port: 3306
-      targetPort: 3306
+    - name: cockroachdb
+      port: 26257
+      targetPort: 26257
       protocol: TCP 
   selector:
     app: qod-db
