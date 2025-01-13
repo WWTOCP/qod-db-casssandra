@@ -15,7 +15,7 @@ CREATE TABLE genres (
 );
 
 CREATE TABLE quotes (
-  quote_id INT NOT NULL AUTO_INCREMENT, 
+  quote_id serial NOT NULL, 
   genre_id INT NOT NULL,
   author_id INT NOT NULL,
   quote VARCHAR(1024),
