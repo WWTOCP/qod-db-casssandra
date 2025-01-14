@@ -14,8 +14,14 @@ CREATE TABLE genres (
   CONSTRAINT genre_pk PRIMARY KEY (genre_id)
 );
 
+CREATE SEQUENCE quotes_quote_id_sequence START WITH 1 INCREMENT BY 1;
+-- cockroachdb says this about a sequence when creating the table:
+-- using sequential values in a primary key does not perform as well as using random UUIDs. See https://www.cockroachlabs.com/docs/v24.3/serial.html
+
 CREATE TABLE quotes (
-  quote_id serial NOT NULL, -- 'serial' will increment by 1 in postgres, cockroachdb will create a INT8 NOT NULL DEFAULT unique_rowid()
+  -- 'serial' will increment by 1 in postgres, cockroachdb will create a INT8 NOT NULL DEFAULT unique_rowid()
+  -- therefore, with cockroachdb, I decided to use a manually defined sequence.
+  quote_id INT NOT NULL DEFAULT nextval('quotes_quote_id_sequence'), 
   genre_id INT NOT NULL,
   author_id INT NOT NULL,
   quote VARCHAR(1024),
