@@ -15,7 +15,7 @@ CREATE TABLE genres (
 );
 
 CREATE TABLE quotes (
-  quote_id serial NOT NULL, 
+  quote_id serial NOT NULL, -- 'serial' will increment by 1 in postgres, cockroachdb will create a INT8 NOT NULL DEFAULT unique_rowid()
   genre_id INT NOT NULL,
   author_id INT NOT NULL,
   quote VARCHAR(1024),
