@@ -14,7 +14,7 @@ COPY 3_genres.sql /cockroach/
 COPY 4_quotes_sm.sql /cockroach/
 
 # Put our script to create db and tables in the init path
-COPY run.sh /cockroach
+COPY run.sh /docker-entrypoint-initdb.d
 
 # Expose the correct port for COCKROACHDB
 EXPOSE 26257
