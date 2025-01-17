@@ -4,6 +4,8 @@ SELECT 'current user: ' || current_user();
 -- FYI. postgres/cockroad will lower-case the "User" role to "user"
 CREATE ROLE "User" WITH LOGIN PASSWORD 'pass';
 
+SHOW USERS;
+
 -- Grant permissions on future objects
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON TABLES TO "user";
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON SEQUENCES TO "user";
