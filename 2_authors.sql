@@ -1,3 +1,6 @@
+-- echo out current user.
+SELECT 'current user: ' || current_user();
+
 USE qod;
 
 INSERT INTO authors (author_id, author) VALUES (1, 'Mark Twain');
