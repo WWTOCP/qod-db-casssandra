@@ -51,4 +51,4 @@ EXPOSE 8080
 # CREATE ROLE "User" WITH LOGIN PASSWORD 'pass';
 
 #NOTE: The /certs folder is part of the base image and its client node certificate is created for 127.0.0.1 and not localhost
-CMD ["start-single-node", "--certs-dir=certs", "--listen-addr=127.0.0.1:26257", "--http-addr=127.0.0.1:8080"]
+CMD ["start-single-node", "--certs-dir=certs"]
