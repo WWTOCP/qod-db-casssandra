@@ -1,8 +1,7 @@
 -- echo out current user
 SELECT 'current user: ' || current_user();
 
--- FYI. postgres/cockroad will lower-case the "User" role to "user"
-CREATE ROLE "User" WITH LOGIN PASSWORD 'pass';
+CREATE ROLE "user" WITH LOGIN PASSWORD 'pass';
 
 SHOW USERS;
 
