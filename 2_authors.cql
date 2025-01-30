@@ -1,5 +1,5 @@
 -- echo out current user.
-SELECT 'current user: ' || current_user();
+--SELECT 'current user: ' || current_user();
 
 USE qod;
 

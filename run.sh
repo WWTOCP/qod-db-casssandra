@@ -1,7 +1,25 @@
-echo "********* Creating QOD tables in cockroach ************"
-cockroach sql --certs-dir=certs --host=127.0.0.1 --port=26257 --user=root --database=qod < 1_createdb.sql
-echo "********* Seeding the QOD tables in cockroach ************"
-cockroach sql --certs-dir=certs --host=127.0.0.1 --port=26257 --user=root --database=qod < 2_authors.sql > /dev/null
-cockroach sql --certs-dir=certs --host=127.0.0.1 --port=26257 --user=root --database=qod < 3_genres.sql > /dev/null
-cockroach sql --certs-dir=certs --host=127.0.0.1 --port=26257 --user=root --database=qod < 4_quotes_sm.sql > /dev/null
-cockroach sql --certs-dir=certs --host=127.0.0.1 --port=26257 --user=root --database=qod -e 'show users;'
+#!/bin/bash
+set -e
+
+# Wait for Cassandra to fully start
+elapsedTimeInSeconds=0
+timeToWaitInSeconds=5
+echo "Waiting for Cassandra to be available..."
+until cqlsh -e "SHOW HOST;" > /dev/null 2>&1; do
+  echo "Waited $elapsedTimeInSeconds seconds..."
+  sleep $timeToWaitInSeconds
+  elapsedTimeInSeconds=$((elapsedTimeInSeconds + timeToWaitInSeconds))  # Increment counter
+done
+
+echo "Cassandra is up! Executing CQL scripts..."
+
+# Execute all CQL files in the init folder
+for f in /cassandra/*.cql; do
+    echo "Running $f"
+    cqlsh -f "$f"
+done
+
+echo "CQL scripts executed successfully."
+
+# Keep Cassandra running in the foreground
+exec /run.sh "$@"
