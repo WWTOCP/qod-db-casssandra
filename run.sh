@@ -31,9 +31,7 @@ echo "Cassandra is up! Executing CQL scripts..."
 # Execute .cql scripts
 echo "Executing CQL scripts..."
 cqlsh -f /cassandrascripts/1_createdb.cql 2>&1
-cqlsh -f /cassandrascripts/2_authors.cql 2>&1
-cqlsh -f /cassandrascripts/3_genres.cql 2>&1
-cqlsh -f /cassandrascripts/4_quotes_sm.cql 2>&1
+cqlsh -f /cassandrascripts/2_quotes.cql 2>&1
 
 echo "CQL scripts executed successfully."
 

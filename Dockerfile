@@ -3,9 +3,7 @@ FROM docker.io/cassandra
 
 # Copy our sql scripts
 COPY 1_createdb.cql /cassandrascripts/
-COPY 2_authors.cql /cassandrascripts/
-COPY 3_genres.cql /cassandrascripts/
-COPY 4_quotes_sm.cql /cassandrascripts/
+COPY 2_quotes.cql /cassandrascripts/
 
 # The cassandra base image does not have a /docker-entrypoint-initdb.d directory.
 # I decided to simply copy the run.sh into the same folder that the .cql file(s)

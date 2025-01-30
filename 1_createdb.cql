@@ -13,19 +13,9 @@ USE qod;
 --ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON SEQUENCES TO "user";
 --ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON FUNCTIONS TO "user";
 
-CREATE TABLE authors (
-  author_id INT PRIMARY KEY, -- does not allow nulls
-  author TEXT
-);
-
-CREATE TABLE genres (
-  genre_id INT PRIMARY KEY,  -- does not allow nulls
-  genre TEXT
-);
-
 CREATE TABLE quotes (
-  quote_id INT PRIMARY KEY, 
-  genre_id INT,
-  author_id INT,
-  quote TEXT
+  id INT PRIMARY KEY, 
+  genre TEXT,
+  author TEXT,
+  text TEXT
 );
